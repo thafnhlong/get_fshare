@@ -171,10 +171,16 @@ class FSAPI:
                 'DNT': '1',
                 'Connection': 'keep-alive'
             }
+            
+            t1 = int(round(time.time() * 1000))
             res = self.s.post(location,
                               params=chunk_params,
                               headers=headers,
                               data=data.read(max_chunk_size))
+            
+            t2 = int(round(time.time() * 1000))
+            print('speed: 25M/'+str(t2-t1))
+            
             try:
                 if res.json():
                     return res.json()
