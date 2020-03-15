@@ -134,7 +134,7 @@ class FSAPI:
         location = r.json()['location']
 
         # OPTIONS for chunk upload configuration
-        max_chunk_size = 25000000
+        max_chunk_size = 10485760 #10Mi
         chunk_total = math.ceil(int(file_size)/max_chunk_size)
 
         for i in range(int(chunk_total)):
@@ -180,7 +180,7 @@ class FSAPI:
                               data=data.read(max_chunk_size))
             
             t2 = int(round(time.time() * 1000))
-            print('speed: 25M/'+str(t2-t1))
+            print('speed: 10M/'+str(t2-t1))
             
             try:
                 if res.json():
