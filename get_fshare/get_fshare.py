@@ -135,7 +135,7 @@ class FSAPI:
 
         # OPTIONS for chunk upload configuration
         max_chunk_size = 10485760 #10Mi
-        chunk_total = math.ceil(int(file_size)/max_chunk_size)
+        chunk_total = math.ceil(float(file_size)/max_chunk_size)
 
         for i in range(int(chunk_total)):
             chunk_number = i + 1
