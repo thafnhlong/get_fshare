@@ -136,7 +136,7 @@ class FSAPI:
         max_chunk_size = 25000000
         chunk_total = math.ceil(int(file_size)/max_chunk_size)
 
-        for i in range(chunk_total):
+        for i in range(int(chunk_total)):
             chunk_number = i + 1
             sent = last_index = i * max_chunk_size
             remaining = int(file_size) - sent
